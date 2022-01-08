@@ -1,20 +1,24 @@
 // Import environment variables
+import express from 'express';
+import { authenticate } from "../middleware/auth-middleware.js";
 import userRoutes from "./user-routes.js";
 import authRoutes from "./auth-routes.js";
 import userAccountRoutes from "./user-account-routes.js";
 
 
-const routes = (app, router) => {
+const apiRouters = () => {
+    const router = express.Router();
     
     // Unauthorized routes
-    authRoutes(router);
+    router.use('/auth', authRoutes());
 
-    // Authorized routes.
-    userRoutes(router);
+    // Authenticated routes
+    router.use(authenticate);
 
-    userAccountRoutes(router);
+    router.use('/users', userRoutes());
+    router.use('/user-account', userAccountRoutes());
     
-    app.use('/api', router);
+    return router;
 };
 
-export default routes;
+export default apiRouters;

@@ -2,15 +2,15 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import mongoose from 'mongoose';
+import { constants } from './api/config/constants.js';
 
 // Import environment variables
 import env from './api/config/env.js';
 
 // Import routes
-import routes from './api/routes/index.js';
+import apiRouters from './api/routes/index.js';
 
 const app = express();
-const router = express.Router();
 const serverPort = env.SERVER_PORT;
 
 // Connect to database
@@ -27,8 +27,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Routers
-routes(app, router);
-
+app.use(constants.API_PREFIX, apiRouters());
 
 // Starting the server
 app.listen(serverPort, () => {

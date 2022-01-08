@@ -82,7 +82,7 @@ export const userLogin = async (req) => {
 
         if(isValidPassword) {
             let data = user.toJSON();
-            data.token = generateToken({id: user.id, isAdmin: user.is_admin});
+            data.token = generateToken({id: user.id, isAdmin: user.is_admin, role:user.role});
             return {result: true, data: data};
         }
     }

@@ -1,5 +1,5 @@
 export const constants = {
-    API_PREFIX_V1: '/api', // API base URL with version
+    API_PREFIX: '/api', // API base URL with version
     PAGE_SIZE: 20, // No of records per page
     INITIAL_PAGE: 1,
     BULK_ACTIONS: {
@@ -11,5 +11,10 @@ export const constants = {
         active: 'Active',
         inactive: 'Inactive',
         pending: 'Pending'
+    },
+    USER_ROLES: {
+        ADMIN: 'admin',
+        STAFF: 'staff',
+        USER: 'user'
     }
 };

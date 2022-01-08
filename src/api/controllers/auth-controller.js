@@ -46,7 +46,6 @@ export const login = async (req, res) => {
         return errorResponse(res, statusCodes.UNAUTHORIZED, loginResult.message);
 
     } catch (error) {
-        // console.log("Error: ", error);
         return errorResponse(res, statusCodes.INTERNAL_SERVER_ERROR, error.message || messages.INTERNAL_SERVER_ERROR);
     }
 };

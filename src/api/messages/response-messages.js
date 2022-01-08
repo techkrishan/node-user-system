@@ -31,6 +31,7 @@ const messages = {
     USER_NOT_FOUND: 'User does not exists',
 
     UNAUTHORIZED_ACCESS: "Unauthorized access!",
+    UNAUTHORIZED_ROLE_ACCESS: "You are not authorized to perform this action.",
     ACCESS_FORBIDDEN: "You are not authorized for this action.",
 
     PASSWORD_CHANGED: "Password has been updated.",
